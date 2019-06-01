@@ -46,7 +46,7 @@ def load_classes(file_dir):
     return np.array(class_names)
 
 
-def crop_image(image, box, save_dir=None):
+def crop_image(image, box, save_fullname=None):
     """
     input:
             image: numpy array of image
@@ -59,9 +59,9 @@ def crop_image(image, box, save_dir=None):
     cropped_image = image[y1:y2, x1:x2]
 
     # Save image
-    if save_dir is not None:
+    if save_fullname is not None:
         try:
-            cv2.imwrite(save_dir, cropped_image)
+            cv2.imwrite(save_fullname, cropped_image)
         except Exception as e:
             print(e)
 
